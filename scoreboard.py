@@ -21,3 +21,8 @@ class Level(Turtle):
     def game_over(self):
         self.goto(0, 0)
         self.write("GAME OVER ", align="center", font=FONT)
+
+    def reset(self):
+        self.clear()
+        self.level = 1
+        self.write(f"Level : {self.level}", align=ALIGNMENT, font=FONT)
