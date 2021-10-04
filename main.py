@@ -1,4 +1,5 @@
 import time
+from tkinter import messagebox
 from turtle import Screen
 from player import Player
 from car_manager import CarManager
@@ -19,11 +20,16 @@ while game_is_on:
     time.sleep(.1)
     car.move()
     for car_ in car.cars:
-        if car_.distance(player) < 25:
-            game_is_on = False
-            level.game_over()
+        if car_.distance(player) < 22:
+            if not messagebox.askyesno("Game Over!", "Do you want to play again?"):
+                game_is_on = False
+                level.game_over()
+            else:
+                level.reset()
+                car.reset()
+                player.reset_position()
     if player.ycor() > 280:
-        player.level_up()
+        player.reset_position()
         car.level_up()
         level.update_level()
     if a % 5 == 0:
