@@ -34,3 +34,7 @@ class CarManager:
     def level_up(self):
         self.STARTING_MOVE_DISTANCE += MOVE_INCREMENT
         self.Add += 1
+
+    def reset(self):
+        self.STARTING_MOVE_DISTANCE = 5
+        self.Add = 1
